@@ -39,12 +39,19 @@ document.getElementById('btn-withdrow').addEventListener('click',function(){
     const previoutWithdrowBalance = getTvToNumber('withdrow-total');
     const totalNewWithdrowBalance = previoutWithdrowBalance+newWithdrowBalance;
 
-    totalTvCalculateAllBalance('withdrow-total', totalNewWithdrowBalance);
-
     const previousTotalBalance = getTvToNumber('total-balance');
+
+    if(previousTotalBalance < newWithdrowBalance){
+        alert('Toamr Tk Nai')
+        return;
+    }
+
+    totalTvCalculateAllBalance('withdrow-total', totalNewWithdrowBalance);
 
     const totalNewBalance = previousTotalBalance - newWithdrowBalance;
 
     totalTvCalculateAllBalance('total-balance', totalNewBalance);
+
+   
 
 })
